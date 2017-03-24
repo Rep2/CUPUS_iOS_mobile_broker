@@ -1,3 +1,5 @@
+import Foundation
+
 struct BaseMessage {
     let messageId: String
     let senderId: String
@@ -35,5 +37,3 @@ extension BaseMessage: JSON {
         return jsonDictionary
     }
 }
-
-//"eid":"d8527f2e-e443-4ea5-9d3d-e15a9ff0845b","id":"4d49fbd4fdd0af534ab4c4d63af8743","type":"NotifyMessage","message":{"payload":{"startTime":1490362793605,"geometry":{"coordinates":[45.815011,15.981919],"type":"Point"},"validity":-1,"properties":[{"value":"SensorReading","key":"Type"},{"value":1.0,"key":"ID"},{"value":20,"key":"co"}]},"unpublish":"False","type":"HashtablePublication"},"timestamp":1490362794561}

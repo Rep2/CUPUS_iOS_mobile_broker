@@ -1,3 +1,5 @@
+import Foundation
+
 enum JSONError: Error {
     case stringConversationFailed
     case objectParsingFailed

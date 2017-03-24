@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD4A76D61E47496D00093377"
-               BuildableName = "CUPUS_iOS_MobileBroker.framework"
-               BlueprintName = "CUPUS_iOS_MobileBroker"
-               ReferencedContainer = "container:CUPUS_iOS_MobileBroker.xcodeproj">
+               BuildableName = "CUPUSMobileBroker.framework"
+               BlueprintName = "CUPUSMobileBroker"
+               ReferencedContainer = "container:CUPUSMobileBroker.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AD4A76DF1E47496D00093377"
-               BuildableName = "CUPUS_iOS_MobileBrokerTests.xctest"
-               BlueprintName = "CUPUS_iOS_MobileBrokerTests"
-               ReferencedContainer = "container:CUPUS_iOS_MobileBroker.xcodeproj">
+               BuildableName = "CUPUSMobileBrokerTests.xctest"
+               BlueprintName = "CUPUSMobileBrokerTests"
+               ReferencedContainer = "container:CUPUSMobileBroker.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD4A76D61E47496D00093377"
-            BuildableName = "CUPUS_iOS_MobileBroker.framework"
-            BlueprintName = "CUPUS_iOS_MobileBroker"
-            ReferencedContainer = "container:CUPUS_iOS_MobileBroker.xcodeproj">
+            BuildableName = "CUPUSMobileBroker.framework"
+            BlueprintName = "CUPUSMobileBroker"
+            ReferencedContainer = "container:CUPUSMobileBroker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD4A76D61E47496D00093377"
-            BuildableName = "CUPUS_iOS_MobileBroker.framework"
-            BlueprintName = "CUPUS_iOS_MobileBroker"
-            ReferencedContainer = "container:CUPUS_iOS_MobileBroker.xcodeproj">
+            BuildableName = "CUPUSMobileBroker.framework"
+            BlueprintName = "CUPUSMobileBroker"
+            ReferencedContainer = "container:CUPUSMobileBroker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -83,9 +83,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AD4A76D61E47496D00093377"
-            BuildableName = "CUPUS_iOS_MobileBroker.framework"
-            BlueprintName = "CUPUS_iOS_MobileBroker"
-            ReferencedContainer = "container:CUPUS_iOS_MobileBroker.xcodeproj">
+            BuildableName = "CUPUSMobileBroker.framework"
+            BlueprintName = "CUPUSMobileBroker"
+            ReferencedContainer = "container:CUPUSMobileBroker.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

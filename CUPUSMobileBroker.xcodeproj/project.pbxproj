@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		AD16AACE1E852272003F8C70 /* SubscriberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16AACD1E852272003F8C70 /* SubscriberTest.swift */; };
 		AD16AAD01E853041003F8C70 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD16AACF1E853041003F8C70 /* Result.swift */; };
-		AD4A76E11E47496D00093377 /* CUPUS_iOS_MobileBroker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4A76D71E47496D00093377 /* CUPUS_iOS_MobileBroker.framework */; };
-		AD4A76E81E47496D00093377 /* CUPUS_iOS_MobileBroker.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4A76DA1E47496D00093377 /* CUPUS_iOS_MobileBroker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AD4A76E11E47496D00093377 /* CUPUSMobileBroker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4A76D71E47496D00093377 /* CUPUSMobileBroker.framework */; };
+		AD4A76E81E47496D00093377 /* CUPUSMobileBroker.h in Headers */ = {isa = PBXBuildFile; fileRef = AD4A76DA1E47496D00093377 /* CUPUSMobileBroker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AD4A76F71E474A8800093377 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4A76F61E474A8800093377 /* Nimble.framework */; };
 		AD4A76FF1E47689B00093377 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4A76F61E474A8800093377 /* Nimble.framework */; };
 		AD71ECA01E5B2D4C00C933DB /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD71EC9F1E5B2D4C00C933DB /* Geometry.swift */; };
@@ -37,10 +37,10 @@
 /* Begin PBXFileReference section */
 		AD16AACD1E852272003F8C70 /* SubscriberTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubscriberTest.swift; path = Subscriber/SubscriberTest.swift; sourceTree = "<group>"; };
 		AD16AACF1E853041003F8C70 /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Models/Result.swift; sourceTree = "<group>"; };
-		AD4A76D71E47496D00093377 /* CUPUS_iOS_MobileBroker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CUPUS_iOS_MobileBroker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD4A76DA1E47496D00093377 /* CUPUS_iOS_MobileBroker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUPUS_iOS_MobileBroker.h; sourceTree = "<group>"; };
+		AD4A76D71E47496D00093377 /* CUPUSMobileBroker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CUPUSMobileBroker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4A76DA1E47496D00093377 /* CUPUSMobileBroker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CUPUSMobileBroker.h; sourceTree = "<group>"; };
 		AD4A76DB1E47496D00093377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD4A76E01E47496D00093377 /* CUPUS_iOS_MobileBrokerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CUPUS_iOS_MobileBrokerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD4A76E01E47496D00093377 /* CUPUSMobileBrokerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CUPUSMobileBrokerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4A76E71E47496D00093377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD4A76F61E474A8800093377 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		AD71EC9F1E5B2D4C00C933DB /* Geometry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Geometry.swift; path = Models/Geometry.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD4A76E11E47496D00093377 /* CUPUS_iOS_MobileBroker.framework in Frameworks */,
+				AD4A76E11E47496D00093377 /* CUPUSMobileBroker.framework in Frameworks */,
 				AD4A76FF1E47689B00093377 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,8 +88,8 @@
 		AD4A76D81E47496D00093377 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD4A76D71E47496D00093377 /* CUPUS_iOS_MobileBroker.framework */,
-				AD4A76E01E47496D00093377 /* CUPUS_iOS_MobileBrokerTests.xctest */,
+				AD4A76D71E47496D00093377 /* CUPUSMobileBroker.framework */,
+				AD4A76E01E47496D00093377 /* CUPUSMobileBrokerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 				ADC8513D1E5B0A4E00A42187 /* Models */,
 				ADF59E7B1E5C73D8007A0BAB /* Subscriber */,
 				ADC8513C1E5B0A4700A42187 /* Publisher */,
-				AD4A76DA1E47496D00093377 /* CUPUS_iOS_MobileBroker.h */,
+				AD4A76DA1E47496D00093377 /* CUPUSMobileBroker.h */,
 				AD4A76DB1E47496D00093377 /* Info.plist */,
 			);
 			path = CUPUS_iOS_MobileBroker;
@@ -161,16 +161,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD4A76E81E47496D00093377 /* CUPUS_iOS_MobileBroker.h in Headers */,
+				AD4A76E81E47496D00093377 /* CUPUSMobileBroker.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		AD4A76D61E47496D00093377 /* CUPUS_iOS_MobileBroker */ = {
+		AD4A76D61E47496D00093377 /* CUPUSMobileBroker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD4A76EB1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUS_iOS_MobileBroker" */;
+			buildConfigurationList = AD4A76EB1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUSMobileBroker" */;
 			buildPhases = (
 				AD4A76D21E47496D00093377 /* Sources */,
 				AD4A76D31E47496D00093377 /* Frameworks */,
@@ -182,14 +182,14 @@
 			);
 			dependencies = (
 			);
-			name = CUPUS_iOS_MobileBroker;
+			name = CUPUSMobileBroker;
 			productName = CUPUS_iOS_MobileBroker;
-			productReference = AD4A76D71E47496D00093377 /* CUPUS_iOS_MobileBroker.framework */;
+			productReference = AD4A76D71E47496D00093377 /* CUPUSMobileBroker.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		AD4A76DF1E47496D00093377 /* CUPUS_iOS_MobileBrokerTests */ = {
+		AD4A76DF1E47496D00093377 /* CUPUSMobileBrokerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AD4A76EE1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUS_iOS_MobileBrokerTests" */;
+			buildConfigurationList = AD4A76EE1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUSMobileBrokerTests" */;
 			buildPhases = (
 				AD4A76DC1E47496D00093377 /* Sources */,
 				AD4A76DD1E47496D00093377 /* Frameworks */,
@@ -201,9 +201,9 @@
 			dependencies = (
 				AD4A76E31E47496D00093377 /* PBXTargetDependency */,
 			);
-			name = CUPUS_iOS_MobileBrokerTests;
+			name = CUPUSMobileBrokerTests;
 			productName = CUPUS_iOS_MobileBrokerTests;
-			productReference = AD4A76E01E47496D00093377 /* CUPUS_iOS_MobileBrokerTests.xctest */;
+			productReference = AD4A76E01E47496D00093377 /* CUPUSMobileBrokerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -230,7 +230,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AD4A76D11E47496D00093377 /* Build configuration list for PBXProject "CUPUS_iOS_MobileBroker" */;
+			buildConfigurationList = AD4A76D11E47496D00093377 /* Build configuration list for PBXProject "CUPUSMobileBroker" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -242,8 +242,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AD4A76D61E47496D00093377 /* CUPUS_iOS_MobileBroker */,
-				AD4A76DF1E47496D00093377 /* CUPUS_iOS_MobileBrokerTests */,
+				AD4A76D61E47496D00093377 /* CUPUSMobileBroker */,
+				AD4A76DF1E47496D00093377 /* CUPUSMobileBrokerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,7 +329,7 @@
 /* Begin PBXTargetDependency section */
 		AD4A76E31E47496D00093377 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AD4A76D61E47496D00093377 /* CUPUS_iOS_MobileBroker */;
+			target = AD4A76D61E47496D00093377 /* CUPUSMobileBroker */;
 			targetProxy = AD4A76E21E47496D00093377 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -533,7 +533,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AD4A76D11E47496D00093377 /* Build configuration list for PBXProject "CUPUS_iOS_MobileBroker" */ = {
+		AD4A76D11E47496D00093377 /* Build configuration list for PBXProject "CUPUSMobileBroker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD4A76E91E47496D00093377 /* Debug */,
@@ -542,7 +542,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD4A76EB1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUS_iOS_MobileBroker" */ = {
+		AD4A76EB1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUSMobileBroker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD4A76EC1E47496D00093377 /* Debug */,
@@ -551,7 +551,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AD4A76EE1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUS_iOS_MobileBrokerTests" */ = {
+		AD4A76EE1E47496D00093377 /* Build configuration list for PBXNativeTarget "CUPUSMobileBrokerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AD4A76EF1E47496D00093377 /* Debug */,

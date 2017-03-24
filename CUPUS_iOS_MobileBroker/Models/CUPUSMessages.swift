@@ -1,3 +1,5 @@
+import UIKit
+
 enum CUPUSMessages: JSON {
     case registerPublisher(name: String)
     case registerSubscriber(name: String)
