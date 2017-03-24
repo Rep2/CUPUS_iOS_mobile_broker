@@ -1,5 +1,6 @@
 enum JSONError: Error {
     case stringConversationFailed
+    case objectParsingFailed
 }
 
 protocol JSON {

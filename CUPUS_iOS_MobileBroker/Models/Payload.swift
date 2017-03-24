@@ -41,4 +41,29 @@ struct Payload: JSON {
 
         return jsonDictionary
     }
+
+    static func from(json: [String: Any]) throws -> Payload {
+        guard let startTime = json["startTime"] as? Int64,
+            let validity = json["validity"] as? Int64,
+            let geometry = json["geometry"] as? [String: Any],
+            let properties = json["properties"] as? [[String: Any]] else {
+                throw JSONError.objectParsingFailed
+        }
+
+        return try Payload(geometry: Geometry.from(json: geometry), properties: properties.map { try Property.from(json: $0) }, startTime: startTime, validity: validity)
+    }
+
+    static func fromBaseJSON(json: [String: Any]) throws -> Payload {
+        guard let messageIdentifier = json["type"] as? String,
+            let message = json["message"] as? [String: Any] else {
+                throw JSONError.objectParsingFailed
+        }
+
+        switch messageIdentifier {
+        case "NotifyMessage":
+            return  try Payload.from(json: message)
+        default:
+            throw JSONError.objectParsingFailed
+        }
+    }
 }

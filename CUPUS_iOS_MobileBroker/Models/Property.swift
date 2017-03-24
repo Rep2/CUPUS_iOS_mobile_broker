@@ -21,4 +21,12 @@ public struct Property: JSON {
     public static var typeKey: String {
         return "Type"
     }
+
+    public static func from(json: [String: Any]) throws -> Property {
+        guard let value = json["value"], let key = json["key"] as? String else {
+            throw JSONError.objectParsingFailed
+        }
+
+        return Property(value: value, key: key)
+    }
 }

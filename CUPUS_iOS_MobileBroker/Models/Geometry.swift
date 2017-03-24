@@ -10,4 +10,21 @@ public enum Geometry: JSON {
             ]
         }
     }
+
+    static func from(json: [String: Any]) throws -> Geometry {
+        guard let type = json["type"] as? String, let coordinates = json["coordinates"] as? [Double] else {
+            throw JSONError.objectParsingFailed
+        }
+
+        switch type {
+        case "Point":
+            if coordinates.count != 2 {
+                throw JSONError.objectParsingFailed
+            }
+
+            return .point(x: coordinates[0], y: coordinates[1])
+        default:
+            throw JSONError.objectParsingFailed
+        }
+    }
 }
