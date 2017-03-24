@@ -1,27 +1,60 @@
+import SwiftSocket
+
 public class Subscriber {
     
-    let id: String
+    let client: TCPClient
     
-    let connectionDelegate: ConnectionDelegate
-    let connection: Connection
-    
-    public init(host: String = "127.0.0.1", port: Int = 10000) throws {
-        self.id = UUID().uuidString
-        
-        connectionDelegate = ConnectionDelegate()
-        connection = try Connection.connect(host: host, port: port, delegate: connectionDelegate)
+    public init(ip: String, port: Int32) {
+        client = TCPClient(address: ip, port: port)
+    }
+
+    public func connect(callback: @escaping (Result<Bool>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = self.client.connect(timeout: 10)
+            
+            callback(Result<Bool>.from(result: result))
+        }
     }
     
-    public func registerSubscriber(callback: @escaping () -> Void) throws {
-        let message = BaseMessage(senderId: id, message: CUPUSMessages.registerSubscriber(name: "CUPUS iOS app", ip: "192.168.1.14", port: 0, senderId: id))
+    public func registerSubscriber(name: String, callback: @escaping (Result<Bool>) -> Void) {
+        let message = BaseMessage(message: CUPUSMessages.registerSubscriber(name: name))
         
-        try connectionDelegate.write(data: message.json(), callback: callback)
+        do {
+            let data = try message.json()
+            
+            send(data: data, callback: callback)
+        } catch let error {
+            callback(Result.failure(error: error))
+        }
     }
     
-    public func subscribe(callback: @escaping () -> Void) throws {
-        let message = BaseMessage(senderId: id, message: .subscribe(features: [Feature(property: PredicateMap(predicates: [Predicate()]))]))
+    public func subscribe(geometry: Geometry?, predicates: [Predicate], callback: @escaping (Result<Bool>) -> Void, newPublicationCallback: @escaping ([Byte]?) -> Void) {
+        let message = BaseMessage(message: CUPUSMessages.subscribe(payload: Payload(geometry: geometry, properties: predicates), unsubscribe: false))
         
-        try connectionDelegate.write(data: message.json(), callback: callback)
+        DispatchQueue.global(qos: .userInitiated).async {
+            do {
+                let data = try message.json()
+                
+                let result = self.client.send(data: data)
+                
+                callback(Result<Bool>.from(result: result))
+                
+                repeat {
+                    let publication = self.client.read(1000)
+                    
+                    newPublicationCallback(publication)
+                } while true
+            } catch let error {
+                callback(Result.failure(error: error))
+            }
+        }
     }
     
+    func send(data: Data, callback: @escaping (Result<Bool>) -> Void) {
+        DispatchQueue.global(qos: .userInitiated).async {
+            let result = self.client.send(data: data)
+            
+            callback(Result<Bool>.from(result: result))
+        }
+    }
 }

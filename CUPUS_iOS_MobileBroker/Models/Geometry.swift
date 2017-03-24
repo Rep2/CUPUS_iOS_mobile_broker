@@ -1,4 +1,4 @@
-enum Geometry: JSON {
+public enum Geometry: JSON {
     case point(x: Double, y: Double)
     
     var jsonDictionary: [String : Any] {

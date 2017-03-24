@@ -1,18 +1,3 @@
-enum JSONError: Error {
-    case stringConversationFailed
-}
-
-protocol JSON {
-    func json() throws -> Data
-    var jsonDictionary: [String: Any] { get }
-}
-
-extension JSON {
-    func json() throws -> Data {
-        return try JSONSerialization.data(withJSONObject: jsonDictionary)
-    }
-}
-
 struct BaseMessage {
     let messageId: String
     let senderId: String
@@ -20,11 +5,18 @@ struct BaseMessage {
         
     let message: CUPUSMessages
     
-    init(senderId: String, message: CUPUSMessages) {
-        self.messageId = UUID().uuidString
+    init(messageId: String, senderId: String, timestamp: Int64, message: CUPUSMessages) {
+        self.messageId = messageId
         self.senderId = senderId
+        self.timestamp = timestamp
         self.message = message
-        
+    }
+
+    init(message: CUPUSMessages) {
+        self.messageId = UUID().uuidString
+        self.senderId = (UIDevice.current.identifierForVendor ?? UUID()).uuidString
+        self.message = message
+
         self.timestamp = Int64(Date().timeIntervalSince1970 * 1000)
     }
 }
@@ -38,7 +30,7 @@ extension BaseMessage: JSON {
             "timestamp": timestamp as Any
         ]
         
-        jsonDictionary["message"] = try? message.jsonString()
+        jsonDictionary["message"] = message.jsonDictionary
         
         return jsonDictionary
     }

@@ -1,28 +1,24 @@
-enum Property: JSON {
-    case co(value: Int)
-    
-    var id: String {
-        switch self {
-        case .co:
-            return "10.0"
-        }
-    }
-    
-    var propertyIdentifier: String {
-        switch self {
-        case .co:
-            return "co"
-        }
+public struct Property: JSON {
+    let value: Any
+    let key: String
+
+    public init(value: Any, key: String) {
+        self.value = value
+        self.key = key
     }
     
     var jsonDictionary: [String : Any] {
-        switch  self {
-        case .co(let value):
-            return [
-                "Type": "SensorReading",
-                "ID": id,
-                propertyIdentifier: String(value)
-            ]
-        }
+        return [
+            "key": key,
+            "value": value
+        ]
+    }
+
+    public static var noiseKey: String {
+        return "noise"
+    }
+
+    public static var typeKey: String {
+        return "Type"
     }
 }

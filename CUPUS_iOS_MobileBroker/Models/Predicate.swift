@@ -1,40 +1,36 @@
-struct Predicate: JSON {
+public struct Predicate: JSON {
     let value: String
     let key: String
-    let operatorIdentifier: String
+    let predicateOperator: Operator
     
-    init(value: String = "SensorReading", key: String = "Type", operatorIdentifier: String = "EQUAL") {
+    public init(value: String, key: String, predicateOperator: Operator) {
         self.value = value
         self.key = key
-        self.operatorIdentifier = operatorIdentifier
+        self.predicateOperator = predicateOperator
     }
     
     var jsonDictionary: [String : Any] {
         return [
             "value": value,
             "key": key,
-            "operator": operatorIdentifier
+            "operator": predicateOperator.identifier
         ]
-    }
-    
-    func jsonString() throws -> String {
-        if let jsonString = try String(data: json(), encoding: .ascii) {
-            return jsonString
-        } else {
-            throw JSONError.stringConversationFailed
-        }
     }
 }
+
+public enum Operator {
+    case equal
+    case less
+    case more
     
-struct PredicateMap: JSON {
-    let predicates: [Predicate]
-    
-    var jsonDictionary: [String : Any] {
-        let predicatesStrings = predicates.map { try? $0.jsonString() }.flatMap { $0 }
-        
-        return [
-            "predicateMap": predicatesStrings,
-            "stringAttributeBorders": [:]
-        ]
+    var identifier: String {
+        switch self {
+        case .equal:
+            return "EQUAL"
+        case .less:
+            return "LESS"
+        case .more:
+            return "MORE"
+        }
     }
 }

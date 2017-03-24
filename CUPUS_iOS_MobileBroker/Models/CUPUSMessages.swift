@@ -1,9 +1,9 @@
 enum CUPUSMessages: JSON {
-    case registerPublisher(name: String, senderId: String)
-    case registerSubscriber(name: String, ip: String, port: Int, senderId: String)
-    case publish(features: [Feature], startTime: Int64)
-    case subscribe(features: [Feature])
-    
+    case registerPublisher(name: String)
+    case registerSubscriber(name: String)
+    case publish(payload: Payload, unpublish: Bool)
+    case subscribe(payload: Payload, unsubscribe: Bool)
+
     var identifier: String {
         switch self {
         case .registerPublisher:
@@ -19,40 +19,30 @@ enum CUPUSMessages: JSON {
     
     var jsonDictionary: [String: Any] {
         switch self {
-        case .registerPublisher(let name, let senderId):
+        case .registerPublisher(let name):
             return [
                 "en": name,
-                "id": senderId
+                "id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString
             ]
-        case .registerSubscriber(let name, let ip, let port, let senderId):
+        case .registerSubscriber(let name):
             return [
-                "port": String(port),
-                "ip": ip,
+                "port": "0",
+                "ip": "192.168.1.8",
                 "en": name,
-                "id": senderId
+                "id": (UIDevice.current.identifierForVendor ?? UUID()).uuidString
             ]
-        case .publish(let features, let startTime):
+        case .publish(let payload, let unpublish):
             return [
-                "unpublish": "False",
-                "publicationType": "HashtablePublication",
-                "publicationJSON": Publication(features: features, startTime: startTime).jsonDictionary
+                "unpublish": unpublish ? "True" : "False",
+                "type": "HashtablePublication",
+                "payload": payload.jsonDictionary
             ]
-        case .subscribe(let features):
-            let startTime = Int64(Date().timeIntervalSince1970 * 1000)
-            
+        case .subscribe(let payload, let unsubscribe):
             return [
-                "unsubscribe": "False",
-                "subscriptionType": "TripletSubscription",
-                "subscriptionJSON": Publication(features: features, startTime: startTime).jsonDictionary
+                "unsubscribe": unsubscribe ? "True" : "False",
+                "type": "TripletSubscription",
+                "payload": payload.jsonDictionary,
             ]
-        }
-    }
-    
-    func jsonString() throws -> String {
-        if let jsonString = try String(data: json(), encoding: .ascii) {
-            return jsonString
-        } else {
-            throw JSONError.stringConversationFailed
         }
     }
 }
